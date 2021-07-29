@@ -3,15 +3,11 @@ const mysql = require('mysql');
 const pool = mysql.createPool({
 
     connectionLimit:10000,
-    // user: 'garageinc',
-    // password: '#Garage123',
-    // database:'garageinc',
-    // host:'151.106.26.182',
-    // port: '3306'
+ 
 
     user: 'root',
     password: '',
-    database:'drmobile',
+    database:'mstrader',
     host:'localhost',
     port: '3306'
 
@@ -20,26 +16,6 @@ const pool = mysql.createPool({
 
 let drmobile={};
 
-drmobile.all = () => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`SELECT * from feedback LIMIT 10`,(err,results) => {
-            
-            if(err){
-                return reject(err);
-            }
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
 
 
 
@@ -86,10 +62,52 @@ drmobile.searchProduct = (term,limit) => {
 };
 
 
-drmobile.getCategory = (category,limit) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drmobile.getwallpaper = () => {
 
     return new Promise((resolve,reject) => {
-        pool.query(`SELECT * FROM products WHERE category LIKE ? LIMIT ?,10` ,[category,limit],(err,results) => {
+
+        pool.query(`SELECT * FROM wallpaper`,(err,results) => {
+            
+            if(err){
+                return reject(err);
+            }
+            else{
+                return resolve(results);
+            }
+
+        });
+
+
+    });
+
+
+};
+
+
+drmobile.getgrass = () => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`SELECT * FROM grass`,(err,results) => {
             
             if(err){
                 return reject(err);
@@ -108,12 +126,11 @@ drmobile.getCategory = (category,limit) => {
 
 
 
-
-drmobile.allBrands= () => {
+drmobile.getcanvas = () => {
 
     return new Promise((resolve,reject) => {
 
-        pool.query('SELECT `name` as "brand_name",`image_url`,`priority_id` FROM `brand_list`',(err,results) => {
+        pool.query(`SELECT * FROM canvas`,(err,results) => {
             
             if(err){
                 return reject(err);
@@ -131,17 +148,89 @@ drmobile.allBrands= () => {
 };
 
 
-//get staffs
-drmobile.getstaff = () => {
+
+drmobile.getmural = () => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`SELECT * FROM mural`,(err,results) => {
+            
+            if(err){
+                return reject(err);
+            }
+            else{
+                return resolve(results);
+            }
+
+        });
+
+
+    });
+
+
+};
+
+
+
+drmobile.wallfoam = () => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`SELECT * FROM wallfoam`,(err,results) => {
+            
+            if(err){
+                return reject(err);
+            }
+            else{
+                return resolve(results);
+            }
+
+        });
+
+
+    });
+
+
+};
+
+
+
+drmobile.getother = () => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`SELECT * FROM others`,(err,results) => {
+            
+            if(err){
+                return reject(err);
+            }
+            else{
+                return resolve(results);
+            }
+
+        });
+
+
+    });
+
+
+};
+
+
+
+drmobile.insertOrder = (order_id, P_id,type,name,contact,date) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into orders(order_id, P_id, type, name, contact, date) values(?, ?, ?, ?, ?, ?)`,[order_id, P_id, type, name, contact, date],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM staff`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -154,17 +243,23 @@ drmobile.getstaff = () => {
 
 };
 
-//get medicine
-drmobile.getmedicine = () => {
+
+
+
+
+drmobile.deletecanvas = (P_id) => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from canvas where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM medicine`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -177,16 +272,22 @@ drmobile.getmedicine = () => {
 
 };
 
-drmobile.getemergency = () => {
+
+
+
+drmobile.deletewallpaper = (P_id) => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from wallpaper where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM emergencycontact`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -200,16 +301,22 @@ drmobile.getemergency = () => {
 };
 
 
-drmobile.getabortion = () => {
+
+
+
+drmobile.deletewallfoam = (P_id) => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from foam where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM abortion`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -224,16 +331,20 @@ drmobile.getabortion = () => {
 
 
 
-drmobile.getvolunteer = () => {
+
+drmobile.deletegrass = (P_id) => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from grass where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM volunteer`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -248,16 +359,19 @@ drmobile.getvolunteer = () => {
 
 
 
-drmobile.getsexeducation = () => {
+drmobile.deletemular = (P_id) => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from mular where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM sexeducation`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -271,16 +385,20 @@ drmobile.getsexeducation = () => {
 };
 
 
-drmobile.gethelp = () => {
+
+drmobile.deleteother = (P_id) => {
 
     return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from others where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+            
           
-        pool.query(`SELECT * FROM help`,(err,results) => {
+           
 
-            
             if(err){
-                return reject(err);
-            }
+               
+                return reject(err);}
+         
             else{
                 return resolve(results);
             }
@@ -295,53 +413,6 @@ drmobile.gethelp = () => {
 
 
 
-
-
-
-
-drmobile.getVehiclesDetails = (id) => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`SELECT * FROM vehicles WHERE id LIKE ?` ,[id],(err,results) => {
-
-            
-            if(err){
-                return reject(err);
-            }
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
-
-drmobile.validateToken = (token) => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`SELECT count(user) as count FROM tokens WHERE token LIKE ?` ,[token],(err,results) => {
-
-            
-            if(err){
-                return reject(err);
-            }
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
 
 
 
@@ -368,191 +439,8 @@ drmobile.customWidget = () => {
 };
 
 
-drmobile.featuredProducts = () => {
 
-    return new Promise((resolve,reject) => {
 
-        pool.query(`SELECT * FROM products where featured_product = '1'`,(err,results) => {
-            
-            if(err){
-                return reject(err);
-            }
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
-
-
-
-
-
-// insert feedback
-drmobile.insertfeedback = (user_id,contact,name,feedback) => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`insert into feedback(UID, contact, Name, feedback) values(?, ?, ?, ?)`,[user_id, contact, name, feedback],(err,results) => {
-            
-          
-           
-
-            if(err){
-               
-                return reject(err);}
-         
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
-
-//inserting user details
-drmobile.registration = (uid,name,contact,username,password) => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`insert into users(UID, name, contact, username, password) values(?, ?, ?, ?, ?)`,[uid, name, contact, username, password],(err,results) => {
-            
-          
-           
-
-            if(err){
-               
-                return reject(err);}
-         
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
-
-// Get username password
-drmobile.login = (email,password) => {
-
-    return new Promise((resolve,reject) => {
-       
-        pool.query("SELECT * FROM user WHERE (email, password) = (?, ?)", [email, password], function(err, row) {
-            console.log(row.length);
-            if(row.length!=0) {
-              console.log("User Logged In");
-              resolve(row);
-              } else {
-              res.status(404);
-              console.error("Failure");
-                reject(err);
-            }
-          });
-
-    });
-
-
-};
-
-
-
-
-
-
-
-
-
-
-
-// insert user id and product id wish list 
-
-
-// drmobile.insertwishlist = (user_id,product_id) => {
-
-//     return new Promise((resolve,reject) => {
-
-//         pool.query(`insert into wishlist(uuid, product_id) values(?, ?)`,[user_id, product_id],(err,results) => {
-            
-          
-           
-
-//             if(err){
-               
-//                 return reject(err);}
-         
-//             else{
-//                 return resolve(results);
-//             }
-
-//         });
-
-
-//     });
-
-
-// };
-
-
-
-// select user id and product id wish list 
-
-
-drmobile.userProduct = (user_id) => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`SELECT * FROM wishlist where uuid LIKE '%' ? '%'`,[user_id],(err,results) => {
-            
-            if(err){
-                return reject(err);
-            }
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
-
-
-drmobile.customWidget = () => {
-
-    return new Promise((resolve,reject) => {
-
-        pool.query(`SELECT * FROM widgets`,(err,results) => {
-
-            
-            if(err){
-                return reject(err);
-            }
-            else{
-                return resolve(results);
-            }
-
-        });
-
-
-    });
-
-
-};
 
 
 module.exports = drmobile;

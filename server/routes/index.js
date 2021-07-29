@@ -4,31 +4,6 @@ const db = require('../db');
 const authorize = require('../middleware/auth-middleware.js');
 const router = express.Router();
 
-
-router.get('/feedback', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-
-    try{
-        console.log("not error");
-        res.statusCode = 200;
-        let result = await db.all();
-        res.json(result);
-
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-   
-        res.sendStatus(500);
-
-
-    }
-
-
-});
-
 router.get('/allcategories', async(req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
@@ -77,45 +52,25 @@ router.get('/search', async(req,res,next) => {
 });
 
 // , authorize()
-router.get('/category',async(req,res,next) => {
+
+
+
+
+
+router.get('/getwallpaper', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        let result = await db.getCategory(req.query.category,Number(req.query.limit));
+        let result = await db.getwallpaper();
         res.json(result);
 
     }
-    catch(e){
+    catch (e) {
         console.log("some error");
         console.log(e);
-   
-        res.sendStatus(500);
-
-
-    }
-
-
-});
-
-//For Vehicles
-
-router.get('/brands', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    try{
-        console.log("not error");
-        res.statusCode = 200;
-        let result = await db.allBrands();
-        res.json(result);
-
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-   
         res.sendStatus(500);
 
 
@@ -125,22 +80,22 @@ router.get('/brands', async(req,res,next) => {
 });
 
 
-   //For Staff Listing 
-router.get('/staff', async(req,res,next) => {
+
+
+router.get('/getgrass', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        let result = await db.getstaff();
+        let result = await db.getgrass();
         res.json(result);
 
     }
-    catch(e){
+    catch (e) {
         console.log("some error");
         console.log(e);
-   
         res.sendStatus(500);
 
 
@@ -149,22 +104,22 @@ router.get('/staff', async(req,res,next) => {
 
 });
 
-//for getting medicine
-router.get('/medicine', async(req,res,next) => {
+
+
+router.get('/getcanvas', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        let result = await db.getmedicine();
+        let result = await db.getcanvas();
         res.json(result);
 
     }
-    catch(e){
+    catch (e) {
         console.log("some error");
         console.log(e);
-   
         res.sendStatus(500);
 
 
@@ -174,18 +129,20 @@ router.get('/medicine', async(req,res,next) => {
 });
 
 
-router.get('/emergency', async(req,res,next) => {
+
+
+router.get('/getmural', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        let result = await db.getemergency();
+        let result = await db.getmural();
         res.json(result);
 
     }
-    catch(e){
+    catch (e) {
         console.log("some error");
         console.log(e);
         res.sendStatus(500);
@@ -198,19 +155,18 @@ router.get('/emergency', async(req,res,next) => {
 
 
 
-
-router.get('/abortion', async(req,res,next) => {
+router.get('/wallfoam', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        let result = await db.getabortion();
+        let result = await db.wallfoam();
         res.json(result);
 
     }
-    catch(e){
+    catch (e) {
         console.log("some error");
         console.log(e);
         res.sendStatus(500);
@@ -224,62 +180,18 @@ router.get('/abortion', async(req,res,next) => {
 
 
 
-router.get('/volunteer', async(req,res,next) => {
+router.get('/getother', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        let result = await db.getvolunteer();
+        let result = await db.getother();
         res.json(result);
 
     }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-        res.sendStatus(500);
-
-
-    }
-
-
-});
-
-router.get('/sexeducation', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Accesss-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
-        res.statusCode = 200;
-        let result = await db.getsexeducation();
-        res.json(result);
-
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-        res.sendStatus(500);
-
-
-    }
-
-
-});
-
-router.get('/help', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Accesss-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
-        res.statusCode = 200;
-        let result = await db.gethelp();
-        res.json(result);
-
-    }
-    catch(e){
+    catch (e) {
         console.log("some error");
         console.log(e);
         res.sendStatus(500);
@@ -293,257 +205,241 @@ router.get('/help', async(req,res,next) => {
 
 
 
-
- router.get('/bikes-details', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    try{
-        console.log("not error");
-        res.statusCode = 200;
-        let result = await db.getVehiclesDetails(req.query.id);
-        res.json(result);
-
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-   
-        res.sendStatus(500);
-
-
-    }
-
-
-});
-
-
-
-
-router.get('/customWidgets', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    try{
-        console.log("not error");
-        console.log("custom");
-        res.statusCode = 200;
-        let result = await db.customWidget();
-        res.json(result);
-
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-   
-        res.sendStatus(500);
-
-
-    }
-
-
-});
-
-   // select wish list
-   router.get('/userProduct', async(req,res,next) => {
+router.get('/insertOrder', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        res.statusCode = 200;
-        let result = await db.userProduct(decodeURI(req.query.user_id),decodeURI(req.query.product_id));
-        res.json(result);
-
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-   
-        res.sendStatus(500);
-
-
-    }
-
-});
- 
- router.get('/featured-products', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
 
         res.statusCode = 200;
-        let result = await db.featuredProducts();
-        res.json(result);
 
-    }
-    catch(e){
-        console.log("some error");
-        console.log(e);
-        res.sendStatus(500);
-    }
-
-});
-
-
-router.get('/insertFeedback', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
-        res.statusCode = 200;
-        
-        let result = await db.insertfeedback(decodeURI(req.query.user_id),decodeURI(req.query.contact),decodeURI(req.query.name),decodeURI(req.query.feedback));
+        let result = await db.insertOrder(decodeURI(req.query.order_id),decodeURI(req.query.P_id), decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.contact), decodeURI(req.query.time));
         res.json(e.statusCode);
         console.log("successfully uploaded ")
 
     }
-    catch(e){
-       
+    catch (e) {
+
         console.log("some error");
-        if(e.code == "Duplicate entry"){
+        if (e.code == "Duplicate entry") {
             res.statusCode = 500;
-            
-            res.json({'error':e.statuscode});
-        }else{
-            res.json({'error':e.code})
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
             console.log("successfully uploaded ")
         }
         res.sendStatus(500);
-       
+
 
     }
 
 });
 
-router.post('/login',async(req, res) =>{
-    console.log("login");
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); 
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
-        res.statusCode = 200;
-        
-        let result = await db.login(req.body.email,req.body.password);
-        res.json(result);
-        console.log("successfully uploaded ")
 
-    }
-    catch(e){
-       
-        console.log("some error");
-        if(e.code == "Duplicate entry"){
-            res.statusCode = 500;
-            
-            res.json({'error':e.statuscode});
-        }else{
-            res.json({'error':e.code})
-            console.log("successfully uploaded ")
-        }
-        res.sendStatus(500);
-       
 
-    }
-  
-  
-  });
-// registration
-router.get('/registration', async(req,res,next) => {
+
+router.get('/deletecanvas', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-    try{
-        
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
         res.statusCode = 200;
-        
-        let result = await db.registration(decodeURI(req.query.uid),decodeURI(req.query.name),decodeURI(req.query.contact),decodeURI(req.query.username),decodeURI(req.query.password));
+
+        let result = await db.deletecanvas(decodeURI(req.query.P_id));
         res.json(e.statusCode);
         console.log("successfully uploaded ")
-        
+
     }
-    catch(e){
-       
+    catch (e) {
+
         console.log("some error");
-        if(e.code == "Duplicate entry"){
+        if (e.code == "Duplicate entry") {
             res.statusCode = 500;
-            
-            res.json({'error':e.statuscode});
-        }else{
-            res.json({'error':e.code})
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
             console.log("successfully uploaded ")
         }
         res.sendStatus(500);
-       
+
 
     }
 
 });
 
 
-//login 
-// router.get('/login', async(req,res,next) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-//     try{
-        
-//         res.statusCode = 200;
-        
-//         let result = await db.login(decodeURI(req.query.username),decodeURI(req.query.password));
-//         res.json(result);
-//         console.log("successfully found")
-        
-//     }
-//     catch(e){
-       
-//         console.log("some error");
-//         if(e.code == "Duplicate entry"){
-//             res.statusCode = 500;
-            
-//             res.json({'error':e.statuscode});
-//         }else{
-//             res.json({'error':e.code})
-//             console.log("Done")
-//         }
-//         res.sendStatus(500);
-       
-
-//     }
-
-// });
 
 
-//insert user id product id wishlist
-// router.get('/insertwishlist', async(req,res,next) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); 
-//     try{
-        
-//         res.statusCode = 200;
-        
-//         let result = await db.insertwishlist(decodeURI(req.query.user_id),decodeURI(req.query.product_id));
-//         res.json(e.statusCode);
-//         console.log("successfully uploaded ")
 
-//     }
-//     catch(e){
-       
-//         console.log("some error");
-//         if(e.code == "Duplicate entry"){
-//             res.statusCode = 500;
-            
-//             res.json({'error':e.statuscode});
-//         }else{
-//             res.json({'error':e.code})
-//             console.log("successfully uploaded ")
-//         }
-//         res.sendStatus(500);
-       
+router.get('/deletewallpaper', async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
 
-//     }
+        res.statusCode = 200;
 
-// });
+        let result = await db.deletewallpaper(decodeURI(req.query.P_id));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/deletewallfoam', async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.deletewallfoam(decodeURI(req.query.P_id));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/deletegrass', async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.deletegrass(decodeURI(req.query.P_id));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/deletemular', async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.deletemular(decodeURI(req.query.P_id));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/deleteother', async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.deleteother(decodeURI(req.query.P_id));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
 module.exports = router;
