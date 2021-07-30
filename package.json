@@ -1,12 +1,12 @@
 {
-  "name": "garageincapi",
+  "name": "mstraderapi",
   "version": "1.0.0",
   "description": "Garage Inc API",
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon server/server.js -w server",
-    "prod": "node server/server.js",
-    "Start": "node server/server.js"
+    "prod": "node server/server.js"
+    
   },
   "author": "Garage Inc",
   "license": "ISC",
