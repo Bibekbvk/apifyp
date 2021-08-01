@@ -2,13 +2,13 @@ const mysql = require('mysql');
 
 const pool = mysql.createPool({
 
-    connectionLimit:10000,
+    connectionLimit:30000,
  
 
     user:'bhattara_bvk',
     password:'special4u@A',
     database:'bhattara_mstrader',
-    host:'cloudge1.ehostingserver.com',
+    host:'116.203.126.233',
     port:'2083'
 
 
