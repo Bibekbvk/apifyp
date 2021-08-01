@@ -5,8 +5,8 @@ const pool = mysql.createPool({
     connectionLimit:10000,
  
 
-    user: 'bhattara_bvk',
-    password: 'special4u@A',
+    user:'bhattara_bvk',
+    password:'special4u@A',
     database:'bhattara_mstrader',
     host:'localhost',
     port: '3306'
