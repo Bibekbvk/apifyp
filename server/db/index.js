@@ -9,7 +9,7 @@ const pool = mysql.createPool({
     password:'special4u@A',
     database:'bhattara_mstrader',
     host:'cloudge1.ehostingserver.com',
-    port: '2083'
+    port:'2083'
 
 
 });
