@@ -1,8 +1,4 @@
 const express = require('express');
-const apiRouter =require('./routes');
-const app = express();
-const rateLimit = require("express-rate-limit");
-const helmet = require("helmet");
 const cors = require('cors')
 //CORS policy
 app.use(cors());
@@ -11,6 +7,11 @@ res.header("Access-Control-Allow-Origin", "*");
 res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 next();
 });
+const apiRouter =require('./routes');
+const app = express();
+const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
+
 // to use env values
 require('dotenv').config()
 

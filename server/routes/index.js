@@ -194,9 +194,7 @@ router.get('/getother', async (req, res, next) => {
 
 
 router.get('/insertOrder', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+   
     try {
 
         res.statusCode = 200;
@@ -228,9 +226,7 @@ router.get('/insertOrder', async (req, res, next) => {
 
 
 router.get('/deletecanvas', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+ 
     try {
 
         res.statusCode = 200;
@@ -263,9 +259,7 @@ router.get('/deletecanvas', async (req, res, next) => {
 
 
 router.get('/deletewallpaper', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  
     try {
 
         res.statusCode = 200;
@@ -297,9 +291,7 @@ router.get('/deletewallpaper', async (req, res, next) => {
 
 
 router.get('/deletewallfoam', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+ 
     try {
 
         res.statusCode = 200;
@@ -331,9 +323,7 @@ router.get('/deletewallfoam', async (req, res, next) => {
 
 
 router.get('/deletegrass', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
@@ -365,9 +355,7 @@ router.get('/deletegrass', async (req, res, next) => {
 
 
 router.get('/deletemular', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  
     try {
 
         res.statusCode = 200;
@@ -399,9 +387,7 @@ router.get('/deletemular', async (req, res, next) => {
 
 
 router.get('/deleteother', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  
     try {
 
         res.statusCode = 200;
