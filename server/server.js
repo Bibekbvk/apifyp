@@ -1,5 +1,7 @@
 const express = require('express');
 const apiRouter =require('./routes');
+//recently added
+var cors = require('cors')
 const app = express();
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
@@ -15,7 +17,8 @@ const apiLimiter = rateLimit({
 app.use(apiLimiter);
 
 app.use(express.json());
-
+//recently added
+app.use(cors());
 app.use(helmet());
 
 app.use('/api/',apiRouter);
