@@ -1,9 +1,9 @@
 const express = require('express');
-var cors = require('cors'); //added 
+//var cors = require('cors'); //added 
 const db = require('../db');
 const authorize = require('../middleware/auth-middleware.js');
 const router = express.Router();
-app.use(cors()); //added
+//app.use(cors()); //added
 router.get('/allcategories', async(req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
