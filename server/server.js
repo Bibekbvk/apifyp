@@ -14,11 +14,12 @@ const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 1000
   });
+  //recently added
+app.use(cors());
 app.use(apiLimiter);
 
 app.use(express.json());
-//recently added
-app.use(cors());
+
 app.use(helmet());
 
 app.use('/api/',apiRouter);
