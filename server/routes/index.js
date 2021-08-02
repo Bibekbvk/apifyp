@@ -5,7 +5,7 @@ const authorize = require('../middleware/auth-middleware.js');
 const router = express.Router();
 
 router.get('/allcategories', async(req,res,next) => {
-    res.setHeader('Access-Control-Allow-Origin:*');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
     try{
@@ -58,7 +58,7 @@ router.get('/search', async(req,res,next) => {
 
 
 router.get('/getwallpaper', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin:*');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     try {
