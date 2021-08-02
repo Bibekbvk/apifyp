@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "npx nodemon server/server.js -w server",
     "start": "node server/server.js"
-    
   },
   "author": "Garage Inc",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.1.3",
