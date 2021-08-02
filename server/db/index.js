@@ -5,10 +5,10 @@ const pool = mysql.createPool({
     connectionLimit:30000,
  
 
-    user:'bhattara_bvk',
-    password:'special4u@A',
-    database:'bhattara_mstrader',
-    host:'cloudge1.ehostingserver.com',
+    user:'sql6428784',
+    password:'rSJNJswqY1',
+    database:'sql6428784',
+    host:'sql6.freemysqlhosting.net',
     port:'3306'
 
 
