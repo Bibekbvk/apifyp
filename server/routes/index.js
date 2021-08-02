@@ -58,9 +58,7 @@ router.get('/search', async(req,res,next) => {
 
 
 router.get('/getwallpaper', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
@@ -83,9 +81,7 @@ router.get('/getwallpaper', async (req, res, next) => {
 
 
 router.get('/getgrass', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
@@ -107,9 +103,7 @@ router.get('/getgrass', async (req, res, next) => {
 
 
 router.get('/getcanvas', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
@@ -132,9 +126,7 @@ router.get('/getcanvas', async (req, res, next) => {
 
 
 router.get('/getmural', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
@@ -156,9 +148,7 @@ router.get('/getmural', async (req, res, next) => {
 
 
 router.get('/wallfoam', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
@@ -181,9 +171,7 @@ router.get('/wallfoam', async (req, res, next) => {
 
 
 router.get('/getother', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     try {
 
         res.statusCode = 200;
