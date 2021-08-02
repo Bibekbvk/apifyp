@@ -1,14 +1,18 @@
 const express = require('express');
 const apiRouter =require('./routes');
-
-var cors = require('cors')
 const app = express();
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 
-app.use(cors({
-  origin:'*'
-}));
+
+const cors = require('cors')
+//CORS policy
+app.use(cors());
+app.use(function (req, res, next) {
+res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
 // to use env values
 require('dotenv').config()
 
