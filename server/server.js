@@ -1,6 +1,6 @@
 const express = require('express');
-
 const app = express();
+const cors = require('cors')
 app.use(cors());
 app.use(function (req, res, next) {
 res.header("Access-Control-Allow-Origin", "*");
@@ -11,7 +11,7 @@ next();
 const apiRouter =require('./routes');
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
-const cors = require('cors')
+
 //CORS policy
 
 // to use env values
