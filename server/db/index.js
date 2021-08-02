@@ -8,8 +8,8 @@ const pool = mysql.createPool({
     user:'bhattara_bvk',
     password:'special4u@A',
     database:'bhattara_mstrader',
-    host:'116.203.126.233',
-    port:'2083'
+    host:'cloudge1.ehostingserver.com',
+    port:'3306'
 
 
 });
