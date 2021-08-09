@@ -4,15 +4,28 @@ const pool = mysql.createPool({
 
     connectionLimit:30000,
  
+    database:'iO6srMvsnE',
+    user:'iO6srMvsnE',
+    password:'wxUkcyHSFn',
+    host:'remotemysql.com',
+    port:'3306',
+    //multipleStatements: true
 
-    user:'sql6428784',
-    password:'rSJNJswqY1',
-    database:'sql6428784',
-    host:'sql6.freemysqlhosting.net',
-    port:'3306'
+    // user:'sql6428784',
+    // password:'rSJNJswqY1',
+    // database:'sql6428784',
+    // host:'sql6.freemysqlhosting.net',
+    // port:'3306'
 
 
 });
+
+//pool.release(error => error ? reject(error) : resolve());
+
+// pool.connect(function(err) {
+//     if (err) throw err;
+//     console.log("Database Connected!");
+//   });
 
 let drmobile={};
 

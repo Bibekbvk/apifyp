@@ -87,7 +87,7 @@ router.get('/getgrass', async (req, res, next) => {
         res.statusCode = 200;
         let result = await db.getgrass();
         res.json(result);
-
+        console.log("trying,,,,,,,,,,,,,,,,,,,")
     }
     catch (e) {
         console.log("some error");
