@@ -102,6 +102,28 @@ router.get('/getgrass', async (req, res, next) => {
 
 
 
+router.get('/getorder', async (req, res, next) => {
+
+    try {
+
+        res.statusCode = 200;
+        let result = await db.getorder();
+        res.json(result);
+        console.log("trying,,,,,,,,,,,,,,,,,,,")
+    }
+    catch (e) {
+        console.log("some error");
+        console.log(e);
+        res.sendStatus(500);
+
+
+    }
+
+
+});
+
+
+
 router.get('/getcanvas', async (req, res, next) => {
 
     try {
@@ -190,6 +212,38 @@ router.get('/getother', async (req, res, next) => {
 
 });
 
+
+
+
+
+router.get('/insertItem', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.insertitem(decodeURI(req.query.P_id),decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
 
 
 
@@ -414,6 +468,72 @@ router.get('/deleteother', async (req, res, next) => {
     }
 
 });
+
+
+
+
+router.get('/insertstaff', async (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    try {
+    
+
+        let result = await db.insertstaff(decodeURI(req.query.name), decodeURI(req.query.staff_type), decodeURI(req.query.location), decodeURI(req.query.fee), decodeURI(req.query.reg_no), decodeURI(req.query.photo));
+
+    
+        res.sendStatus(200);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+router.get('/deleteorder', async (req, res, next) => {
+ 
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.deleteorder(decodeURI(req.query.order_id));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
 
 
 module.exports = router;

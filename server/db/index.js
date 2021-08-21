@@ -6,15 +6,15 @@ const pool = mysql.createPool({
  
     database:'iO6srMvsnE',
     user:'iO6srMvsnE',
-    password:'wxUkcyHSFn',
+    password:'ECCD6Xyadl',
     host:'remotemysql.com',
     port:'3306',
     //multipleStatements: true
 
-    // user:'sql6428784',
+    // user:'root',
     // password:'rSJNJswqY1',
-    // database:'sql6428784',
-    // host:'sql6.freemysqlhosting.net',
+    // database:'nameofdatabase',
+    // host:'localhost',
     // port:'3306'
 
 
@@ -76,24 +76,6 @@ drmobile.searchProduct = (term,limit) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 drmobile.getwallpaper = () => {
 
     return new Promise((resolve,reject) => {
@@ -108,11 +90,7 @@ drmobile.getwallpaper = () => {
             }
 
         });
-
-
     });
-
-
 };
 
 
@@ -121,6 +99,25 @@ drmobile.getgrass = () => {
     return new Promise((resolve,reject) => {
 
         pool.query(`SELECT * FROM grass`,(err,results) => {
+            
+            if(err){
+                return reject(err);
+            }
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+
+drmobile.getorder = () => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`SELECT * FROM orders`,(err,results) => {
             
             if(err){
                 return reject(err);
@@ -151,13 +148,8 @@ drmobile.getcanvas = () => {
             else{
                 return resolve(results);
             }
-
         });
-
-
     });
-
-
 };
 
 
@@ -174,13 +166,8 @@ drmobile.getmural = () => {
             else{
                 return resolve(results);
             }
-
         });
-
-
     });
-
-
 };
 
 
@@ -199,11 +186,7 @@ drmobile.wallfoam = () => {
             }
 
         });
-
-
     });
-
-
 };
 
 
@@ -222,23 +205,17 @@ drmobile.getother = () => {
             }
 
         });
-
-
     });
-
-
 };
 
 
 
-drmobile.insertOrder = (order_id, P_id,type,name,contact,date) => {
+drmobile.insertitem = (P_id,type,name,descr,price,items,others,made,images) => {
 
     return new Promise((resolve,reject) => {
 
-        pool.query(`insert into orders(order_id, P_id, type, name, contact, date) values(?, ?, ?, ?, ?, ?)`,[order_id, P_id, type, name, contact, date],(err,results) => {
+        pool.query(`insert into wallpaper(P_id, type, name, descr, price, items, others, made, images) values(?, ?, ?, ?, ?, ?, ?, ?, ?)`,[P_id,type,name,descr,price,items,others,made,images],(err,results) => {
             
-          
-           
 
             if(err){
                
@@ -249,11 +226,29 @@ drmobile.insertOrder = (order_id, P_id,type,name,contact,date) => {
             }
 
         });
-
-
     });
+};
 
 
+
+
+drmobile.insertOrder = (order_id, P_id,type,name,contact,date) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into orders(order_id, P_id, type, name, contact, date) values(?, ?, ?, ?, ?, ?)`,[order_id, P_id, type, name, contact, date],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
 };
 
 
@@ -295,8 +290,6 @@ drmobile.deletewallpaper = (P_id) => {
         pool.query(`Delete from wallpaper where P_id Like '%' ? '%'`,[P_id],(err,results) => {
             
           
-           
-
             if(err){
                
                 return reject(err);}
@@ -376,11 +369,8 @@ drmobile.deletemular = (P_id) => {
 
     return new Promise((resolve,reject) => {
 
-        pool.query(`Delete from mular where P_id Like '%' ? '%'`,[P_id],(err,results) => {
+        pool.query(`Delete from mural where P_id Like '%' ? '%'`,[P_id],(err,results) => {
             
-          
-           
-
             if(err){
                
                 return reject(err);}
@@ -400,14 +390,9 @@ drmobile.deletemular = (P_id) => {
 
 
 drmobile.deleteother = (P_id) => {
-
     return new Promise((resolve,reject) => {
-
         pool.query(`Delete from others where P_id Like '%' ? '%'`,[P_id],(err,results) => {
             
-          
-           
-
             if(err){
                
                 return reject(err);}
@@ -427,6 +412,30 @@ drmobile.deleteother = (P_id) => {
 
 
 
+drmobile.deleteorder = (order_id) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`Delete from orders where order_id Like '%' ? '%'`,[order_id],(err,results) => {
+            
+          
+           
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+
+
+    });
+
+
+};
 
 
 drmobile.customWidget = () => {
@@ -450,10 +459,5 @@ drmobile.customWidget = () => {
 
 
 };
-
-
-
-
-
 
 module.exports = drmobile;
