@@ -78,6 +78,29 @@ router.get('/getwallpaper', async (req, res, next) => {
 });
 
 
+// tryingg.........................................................
+
+router.get('/getnews', async (req, res, next) => {
+
+    try {
+
+        res.statusCode = 200;
+        let result = await db.getnews();
+        res.json(result);
+
+    }
+    catch (e) {
+        console.log("some error");
+        console.log(e);
+        res.sendStatus(500);
+
+
+    }
+
+
+});
+
+
 
 
 router.get('/getgrass', async (req, res, next) => {

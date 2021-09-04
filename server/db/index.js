@@ -4,18 +4,18 @@ const pool = mysql.createPool({
 
     connectionLimit:30000,
  
-    database:'iO6srMvsnE',
-    user:'iO6srMvsnE',
-    password:'ECCD6Xyadl',
-    host:'remotemysql.com',
-    port:'3306',
+    // database:'iO6srMvsnE',
+    // user:'iO6srMvsnE',
+    // password:'ECCD6Xyadl',
+    // host:'remotemysql.com',
+    // port:'3306',
     //multipleStatements: true
 
-    // user:'root',
-    // password:'rSJNJswqY1',
-    // database:'nameofdatabase',
-    // host:'localhost',
-    // port:'3306'
+    user:'root',
+    password:'',
+    database:'signal',
+    host:'localhost',
+    port:'3306'
 
 
 });
@@ -81,6 +81,26 @@ drmobile.getwallpaper = () => {
     return new Promise((resolve,reject) => {
 
         pool.query(`SELECT * FROM wallpaper`,(err,results) => {
+            
+            if(err){
+                return reject(err);
+            }
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+
+
+drmobile.getnews = () => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`SELECT * FROM news`,(err,results) => {
             
             if(err){
                 return reject(err);
