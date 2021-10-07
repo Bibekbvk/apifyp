@@ -4,18 +4,18 @@ const pool = mysql.createPool({
 
     connectionLimit:30000,
  
-    // database:'iO6srMvsnE',
-    // user:'iO6srMvsnE',
-    // password:'ECCD6Xyadl',
-    // host:'remotemysql.com',
-    // port:'3306',
-    //multipleStatements: true
+    database:'iO6srMvsnE',
+    user:'iO6srMvsnE',
+    password:'ECCD6Xyadl',
+    host:'remotemysql.com',
+    port:'3306',
+    multipleStatements: true,
 
-    user:'root',
-    password:'',
-    database:'signal',
-    host:'localhost',
-    port:'3306'
+    // user:'root',
+    // password:'',
+    // database:'mstrader',
+    // host:'localhost',
+    // port:'3306'
 
 
 });
