@@ -252,11 +252,11 @@ drmobile.insertitem = (P_id,type,name,descr,price,items,others,made,images) => {
 
 
 
-drmobile.insertOrder = (order_id, P_id,type,name,contact,date) => {
+drmobile.insertOrder = (P_id,type,name,contact,date) => {
 
     return new Promise((resolve,reject) => {
 
-        pool.query(`insert into orders(order_id, P_id, type, name, contact, date) values(?, ?, ?, ?, ?, ?)`,[order_id, P_id, type, name, contact, date],(err,results) => {
+        pool.query(`insert into orders(P_id, type, name, contact, date) values(?, ?, ?, ?, ?)`,[P_id,type,name,contact,date],(err,results) => {
             
 
             if(err){

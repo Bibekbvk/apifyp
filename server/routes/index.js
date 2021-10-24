@@ -276,7 +276,7 @@ router.get('/insertOrder', async (req, res, next) => {
 
         res.statusCode = 200;
 
-        let result = await db.insertOrder(decodeURI(req.query.order_id),decodeURI(req.query.P_id), decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.contact), decodeURI(req.query.date));
+        let result = await db.insertOrder(decodeURI(req.query.P_id), decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.contact), decodeURI(req.query.date));
         res.json(e.statusCode);
         console.log("successfully uploaded ")
 
