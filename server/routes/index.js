@@ -245,7 +245,198 @@ router.get('/insertItem', async (req, res, next) => {
 
         res.statusCode = 200;
 
-        let result = await db.insertitem(decodeURI(req.query.P_id),decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        let result = await db.insertitem(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+router.get('/insertcan', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.insertcan(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/insertmur', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.insertmur(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/insertoth', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.insertoth(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/inserfoam', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.inserfoam(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/inserwallpap', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.inserwallpap(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
+        res.json(e.statusCode);
+        console.log("successfully uploaded ")
+
+    }
+    catch (e) {
+
+        console.log("some error");
+        if (e.code == "Duplicate entry") {
+            res.statusCode = 500;
+
+            res.json({ 'error': e.statuscode });
+        } else {
+            res.json({ 'error': e.code })
+            console.log("successfully uploaded ")
+        }
+        res.sendStatus(500);
+
+
+    }
+
+});
+
+
+
+
+router.get('/insertItem', async (req, res, next) => {
+   
+    try {
+
+        res.statusCode = 200;
+
+        let result = await db.insertitem(decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
         res.json(e.statusCode);
         console.log("successfully uploaded ")
 

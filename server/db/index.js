@@ -250,6 +250,129 @@ drmobile.insertitem = (P_id,type,name,descr,price,items,others,made,images) => {
 };
 
 
+drmobile.insertcan = (type,name,descr,price,items,others,made,images) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into canvas(type, name, descr, price, items, others, made, images) values( ?, ?, ?, ?, ?, ?, ?, ?)`,[type,name,descr,price,items,others,made,images],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+drmobile.insertmur = (type,name,descr,price,items,others,made,images) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into mural(type, name, descr, price, items, others, made, images) values( ?, ?, ?, ?, ?, ?, ?, ?)`,[type,name,descr,price,items,others,made,images],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+drmobile.insertoth = (type,name,descr,price,items,others,made,images) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into others(type, name, descr, price, items, others, made, images) values( ?, ?, ?, ?, ?, ?, ?, ?)`,[type,name,descr,price,items,others,made,images],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+drmobile.inserfoam = (type,name,descr,price,items,others,made,images) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into wallfoam(type, name, descr, price, items, others, made, images) values( ?, ?, ?, ?, ?, ?, ?, ?)`,[type,name,descr,price,items,others,made,images],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+drmobile.inserwallpap = (type,name,descr,price,items,others,made,images) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into wallpaper(type, name, descr, price, items, others, made, images) values( ?, ?, ?, ?, ?, ?, ?, ?)`,[type,name,descr,price,items,others,made,images],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+drmobile.inserrgrs = (type,name,descr,price,items,others,made,images) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(`insert into grass(type, name, descr, price, items, others, made, images) values( ?, ?, ?, ?, ?, ?, ?, ?)`,[type,name,descr,price,items,others,made,images],(err,results) => {
+            
+
+            if(err){
+               
+                return reject(err);}
+         
+            else{
+                return resolve(results);
+            }
+
+        });
+    });
+};
+
+
+
+
+
 
 
 drmobile.insertOrder = (P_id,type,name,contact,date) => {
