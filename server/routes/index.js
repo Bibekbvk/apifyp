@@ -243,6 +243,7 @@ router.get('/insertItem', async (req, res, next) => {
    
     try {
 
+        
         res.statusCode = 200;
 
         let result = await db.insertitem(decodeURI(req.query.P_id),decodeURI(req.query.type), decodeURI(req.query.name), decodeURI(req.query.descr), decodeURI(req.query.price), decodeURI(req.query.items), decodeURI(req.query.others), decodeURI(req.query.made),  decodeURI(req.query.images));
